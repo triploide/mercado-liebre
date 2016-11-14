@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'github' => [
+        'client_id' => 'ebde5cf4179969cb2da6',
+        'client_secret' => '431eec153c3e023eb562cabae14b0bd250472a5c',
+        'redirect' => 'http://mercado-liebre.dev:8000/auth/github/callback',
+    ],
+
 ];

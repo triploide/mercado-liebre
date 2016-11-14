@@ -57,6 +57,8 @@
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a>
+
+                                <a href="auth/github">Login con github</a>
                             </div>
                         </div>
                     </form>

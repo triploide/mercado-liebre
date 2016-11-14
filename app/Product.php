@@ -9,7 +9,7 @@ class Product extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['name', 'description', 'price', 'category_id', 'slug'];
+    protected $fillable = ['name', 'description', 'price', 'category_id', 'slug', 'user_id'];
 
     public function sluggable()
     {
@@ -29,6 +29,11 @@ class Product extends Model
     public function category()
     {
       return $this->belongsTo('App\Category');
+    }
+
+    public function user()
+    {
+      return $this->belongsTo('App\User');
     }
 
     public function images()

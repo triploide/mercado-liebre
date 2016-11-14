@@ -68,4 +68,20 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /*
+    public function edit()
+    {
+      return view('register-edit');
+    }
+
+    public function update(Request $request)
+    {
+        \Auth::user()->update([
+            'name' => $request->name,
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+    }
+    */
 }

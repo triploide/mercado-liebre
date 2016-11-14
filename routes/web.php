@@ -19,5 +19,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+/*
+Route::get('register/{id}/edit', 'Auth/RegisterController@edit'); // vista al form de edit
+Route::patch('register/{id}', 'Auth/RegisterController@update'); // action del form
+*/
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/{driver}/callback', 'Auth\AuthController@handleProviderCallback');

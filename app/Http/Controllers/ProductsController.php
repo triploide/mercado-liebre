@@ -14,7 +14,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::visibles()->get();
+        $products = Product::visibles()->where('user_id', \Auth::id())->get();
         return view('products.index', compact('products'));
     }
 
@@ -38,7 +38,12 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create($request->all());
+        $product = \Auth::user()->products()->create($request->all());
+        /*
+        $data = $request->all();
+        $data['user_id'] = \Auth::id();
+        $product = Product::create($data);
+        */
         $product->materials()->sync($request->input('materials'));
         return redirect('products');
     }
