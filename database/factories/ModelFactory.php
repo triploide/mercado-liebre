@@ -24,12 +24,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
-        'value' => $faker->title,
+        'value' => $faker->word,
     ];
 });
 
 $factory->define(App\Material::class, function (Faker\Generator $faker) {
     return [
-        'value' => $faker->title,
+        'value' => $faker->word,
     ];
 });
