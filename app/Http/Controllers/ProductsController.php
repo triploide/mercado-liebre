@@ -94,6 +94,8 @@ class ProductsController extends Controller
      */
     public function destroy(Product $product)
     {
+        //Product::destroy($id);
+
         foreach ($product->images as $image) {
           //borrar los archivo imagen
           \Storage::delete($image->src);
@@ -105,6 +107,12 @@ class ProductsController extends Controller
         $product->save();
 
         return redirect('products');
+    }
+
+    public function borrarPorLote(Request $request)
+    {
+      //Product::whereIn('id', $request->input(ids))->delete();
+      Product::whereIn('id', $request->input(ids))->update(['visible' => 0]);
     }
 
     public function images(Request $request, $id)

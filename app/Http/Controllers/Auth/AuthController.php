@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Socialite;
+use App\User;
 use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
@@ -25,10 +26,14 @@ class AuthController extends Controller
     public function handleProviderCallback()
     {
         $userGithub = Socialite::driver('github')->user();
+        /*
         $user = User::where('github_id', $userGithub->id)->first();
         if (!$user) {
           $user = User::create();
         }
+        */
+        $user = User::firstOrCreate(['github_id' => $userGithub->id]);
+        //$user = User::firstOrNew(['github_id' => $userGithub->id]);
         \Auth::login($user);
         return redirect('home');
 
